@@ -137,41 +137,42 @@ export default function Products() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-3 sm:py-6 lg:py-10">
         
-        {/* ============ PAGE HEADER ============ */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-gray-200 pb-6 mb-8">
+        {/* ============ PAGE HEADER - Responsive ============ */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-gray-200 pb-3 sm:pb-6 mb-4 sm:mb-8">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-gray-900">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Products</span>
             </h1>
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1">
               {filteredProducts.length} products available
             </p>
           </div>
           
-          <div className="mt-4 md:mt-0 flex items-center gap-4">
+          <div className="mt-3 sm:mt-0 flex items-center gap-2 sm:gap-4 flex-wrap">
             {/* Mobile Filter Button */}
             <button 
               onClick={() => setShowMobileFilter(true)}
-              className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 transition lg:hidden"
+              className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 border border-gray-200 rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-50 transition lg:hidden"
             >
-              <Filter className="h-4 w-4" /> Filters
+              <Filter className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> 
+              <span>Filters</span>
             </button>
 
-            {/* Sort Dropdown */}
+            {/* Sort Dropdown - Responsive */}
             <div className="relative">
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="appearance-none px-4 py-2 pr-8 border border-gray-200 rounded-lg text-sm font-medium bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="appearance-none px-3 sm:px-4 py-1.5 sm:py-2 pr-7 sm:pr-8 border border-gray-200 rounded-lg text-xs sm:text-sm font-medium bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-amber-500 max-w-[120px] sm:max-w-none"
               >
                 <option value="popular">Most Popular</option>
                 <option value="rating">Highest Rated</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
               </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+              <ChevronDown className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 sm:h-4 sm:w-4 text-gray-400 pointer-events-none" />
             </div>
 
             {/* View Mode Toggle */}
@@ -180,28 +181,28 @@ export default function Products() {
                 onClick={() => setViewMode('grid')}
                 className={`p-1.5 rounded-md transition ${viewMode === 'grid' ? 'bg-amber-500 text-white shadow-sm' : 'text-gray-400 hover:text-gray-700'}`}
               >
-                <Grid className="h-4 w-4" />
+                <Grid className="h-3.5 w-3.5" />
               </button>
               <button 
                 onClick={() => setViewMode('list')}
                 className={`p-1.5 rounded-md transition ${viewMode === 'list' ? 'bg-amber-500 text-white shadow-sm' : 'text-gray-400 hover:text-gray-700'}`}
               >
-                <List className="h-4 w-4" />
+                <List className="h-3.5 w-3.5" />
               </button>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           
-          {/* ============ SIDEBAR FILTERS ============ */}
-          <aside className="hidden lg:block space-y-6">
+          {/* ============ SIDEBAR FILTERS - Hidden on Mobile ============ */}
+          <aside className="hidden lg:block space-y-4 sm:space-y-6">
             {/* Categories */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+            <div className="bg-white p-4 sm:p-6 rounded-2xl border border-gray-100 shadow-sm">
+              <h3 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4">
                 Categories
               </h3>
-              <div className="space-y-1">
+              <div className="space-y-0.5 sm:space-y-1">
                 {categories.map((cat) => (
                   <button
                     key={cat}
@@ -209,14 +210,14 @@ export default function Products() {
                       setSelectedCategory(cat);
                       setCurrentPage(1);
                     }}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition ${
+                    className={`w-full text-left px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition ${
                       selectedCategory === cat 
                         ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md' 
                         : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                     }`}
                   >
                     {cat}
-                    <span className="float-right text-xs opacity-70">
+                    <span className="float-right text-[10px] sm:text-xs opacity-70">
                       {allProducts.filter(p => cat === 'All' ? true : p.category === cat).length}
                     </span>
                   </button>
@@ -225,69 +226,69 @@ export default function Products() {
             </div>
 
             {/* Price Range */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+            <div className="bg-white p-4 sm:p-6 rounded-2xl border border-gray-100 shadow-sm">
+              <h3 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4">
                 Price Range
               </h3>
-              <div className="space-y-2">
-                <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+              <div className="space-y-1.5 sm:space-y-2">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 cursor-pointer">
                   <input 
                     type="radio" 
                     name="price"
                     onChange={() => setPriceRange([0, 50])}
-                    className="text-amber-500 focus:ring-amber-500"
+                    className="text-amber-500 focus:ring-amber-500 h-3.5 w-3.5 sm:h-4 sm:w-4"
                   /> Under $50
                 </label>
-                <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 cursor-pointer">
                   <input 
                     type="radio" 
                     name="price"
                     onChange={() => setPriceRange([50, 100])}
-                    className="text-amber-500 focus:ring-amber-500"
+                    className="text-amber-500 focus:ring-amber-500 h-3.5 w-3.5 sm:h-4 sm:w-4"
                   /> $50 - $100
                 </label>
-                <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 cursor-pointer">
                   <input 
                     type="radio" 
                     name="price"
                     onChange={() => setPriceRange([100, 200])}
-                    className="text-amber-500 focus:ring-amber-500"
+                    className="text-amber-500 focus:ring-amber-500 h-3.5 w-3.5 sm:h-4 sm:w-4"
                   /> $100 - $200
                 </label>
-                <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 cursor-pointer">
                   <input 
                     type="radio" 
                     name="price"
                     onChange={() => setPriceRange([200, 1000])}
-                    className="text-amber-500 focus:ring-amber-500"
+                    className="text-amber-500 focus:ring-amber-500 h-3.5 w-3.5 sm:h-4 sm:w-4"
                   /> Over $200
                 </label>
-                <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 cursor-pointer">
                   <input 
                     type="radio" 
                     name="price"
                     defaultChecked
                     onChange={() => setPriceRange([0, 1000])}
-                    className="text-amber-500 focus:ring-amber-500"
+                    className="text-amber-500 focus:ring-amber-500 h-3.5 w-3.5 sm:h-4 sm:w-4"
                   /> All Prices
                 </label>
               </div>
             </div>
 
             {/* Rating Filter */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
+            <div className="bg-white p-4 sm:p-6 rounded-2xl border border-gray-100 shadow-sm">
+              <h3 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4">
                 Rating
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-1.5 sm:space-y-2">
                 {[5, 4, 3, 2, 1].map((stars) => (
-                  <label key={stars} className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
-                    <input type="checkbox" className="text-amber-500 focus:ring-amber-500 rounded" />
-                    <div className="flex items-center gap-1">
+                  <label key={stars} className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 cursor-pointer">
+                    <input type="checkbox" className="text-amber-500 focus:ring-amber-500 rounded h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    <div className="flex items-center gap-0.5 sm:gap-1">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className={`h-3.5 w-3.5 ${i < stars ? 'fill-amber-500 text-amber-500' : 'text-gray-300'}`} />
+                        <Star key={i} className={`h-3 w-3 sm:h-3.5 sm:w-3.5 ${i < stars ? 'fill-amber-500 text-amber-500' : 'text-gray-300'}`} />
                       ))}
-                      <span className="ml-1 text-xs text-gray-400">& Up</span>
+                      <span className="ml-0.5 sm:ml-1 text-[10px] sm:text-xs text-gray-400">& Up</span>
                     </div>
                   </label>
                 ))}
@@ -295,43 +296,43 @@ export default function Products() {
             </div>
           </aside>
 
-          {/* ============ PRODUCT GRID ============ */}
+          {/* ============ PRODUCT GRID - Responsive ============ */}
           <main className="lg:col-span-3">
-            <div className={`grid gap-6 ${
+            <div className={`grid gap-3 sm:gap-4 lg:gap-6 ${
               viewMode === 'grid' 
-                ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3' 
+                ? 'grid-cols-2 sm:grid-cols-2 md:grid-cols-3' 
                 : 'grid-cols-1'
             }`}>
               {paginatedProducts.map((product) => (
                 <div 
                   key={product.id} 
-                  className={`bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-2xl hover:-translate-y-1 transition duration-300 relative ${
+                  className={`bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-2xl hover:-translate-y-1 transition duration-300 relative ${
                     viewMode === 'list' ? 'flex flex-col sm:flex-row' : ''
                   }`}
                 >
-                  {/* Tag */}
-                  <span className={`absolute top-3 left-3 text-white font-bold tracking-tight text-[10px] px-2.5 py-1 rounded-full shadow-lg z-10 uppercase ${product.tagColor}`}>
+                  {/* Tag - Responsive */}
+                  <span className={`absolute top-2 sm:top-3 left-2 sm:left-3 text-white font-bold tracking-tight text-[8px] sm:text-[10px] px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-lg z-10 uppercase ${product.tagColor}`}>
                     {product.tag}
                   </span>
 
-                  {/* Wishlist Button */}
+                  {/* Wishlist Button - Responsive */}
                   <button 
                     onClick={() => toggleWishlist(product.id)}
-                    className="absolute top-3 right-3 p-1.5 bg-white/80 backdrop-blur-sm rounded-full shadow-lg z-10 hover:bg-white transition"
+                    className="absolute top-2 sm:top-3 right-2 sm:right-3 p-1 sm:p-1.5 bg-white/80 backdrop-blur-sm rounded-full shadow-lg z-10 hover:bg-white transition"
                   >
-                    <Heart className={`h-4 w-4 ${wishlist.includes(product.id) ? 'fill-red-500 text-red-500' : 'text-gray-400'}`} />
+                    <Heart className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${wishlist.includes(product.id) ? 'fill-red-500 text-red-500' : 'text-gray-400'}`} />
                   </button>
 
-                  {/* Image */}
-                  <div className={`${viewMode === 'list' ? 'sm:w-48 sm:flex-shrink-0' : ''} aspect-square bg-gray-50 overflow-hidden relative`}>
+                  {/* Image - Responsive */}
+                  <div className={`${viewMode === 'list' ? 'sm:w-40 sm:flex-shrink-0' : ''} aspect-square bg-gray-50 overflow-hidden relative`}>
                     <img 
                       src={product.image} 
                       alt={product.name} 
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" 
                       loading="lazy"
                     />
-                    {/* Quick View Overlay */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2">
+                    {/* Quick View Overlay - Hidden on mobile */}
+                    <div className="hidden sm:flex absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition items-center justify-center gap-2">
                       <Link 
                         to={`/product/${product.id}`}
                         className="p-2 bg-white rounded-full hover:bg-amber-500 hover:text-white transition shadow-lg"
@@ -341,34 +342,34 @@ export default function Products() {
                     </div>
                   </div>
 
-                  {/* Details */}
-                  <div className={`p-4 space-y-2 flex-1 ${viewMode === 'list' ? 'flex flex-col justify-center' : ''}`}>
+                  {/* Details - Responsive */}
+                  <div className={`p-2.5 sm:p-4 space-y-1 sm:space-y-2 flex-1 ${viewMode === 'list' ? 'flex flex-col justify-center' : ''}`}>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-500 px-2 py-0.5 bg-gray-100 rounded-full">
+                      <span className="text-[8px] sm:text-xs text-gray-500 px-1.5 sm:px-2 py-0.5 bg-gray-100 rounded-full truncate max-w-[60px] sm:max-w-none">
                         {product.category}
                       </span>
-                      <div className="flex items-center gap-1 text-amber-500 text-xs font-semibold">
-                        <Star className="h-3.5 w-3.5 fill-current" />
+                      <div className="flex items-center gap-0.5 sm:gap-1 text-amber-500 text-[10px] sm:text-xs font-semibold">
+                        <Star className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 fill-current" />
                         <span>{product.rating}</span>
-                        <span className="text-gray-400 font-normal">({product.reviews})</span>
+                        <span className="text-gray-400 font-normal hidden xs:inline">({product.reviews})</span>
                       </div>
                     </div>
                     
-                    <h3 className="font-medium text-gray-800 line-clamp-1 group-hover:text-amber-600 transition">
+                    <h3 className="text-xs sm:text-sm font-medium text-gray-800 line-clamp-1 group-hover:text-amber-600 transition">
                       {product.name}
                     </h3>
                     
-                    <div className="flex items-center justify-between pt-2">
-                      <span className="text-lg font-bold text-gray-900">${product.price.toFixed(2)}</span>
+                    <div className="flex items-center justify-between pt-1 sm:pt-2">
+                      <span className="text-sm sm:text-lg font-bold text-gray-900">${product.price.toFixed(2)}</span>
                       <button 
                         onClick={() => handleAddToCart(product)}
-                        className={`text-xs font-medium px-3 py-1.5 rounded-lg transition duration-200 ${
+                        className={`text-[10px] sm:text-xs font-medium px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg transition duration-200 ${
                           addedProductId === product.id
                             ? 'bg-emerald-500 text-white'
                             : 'bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:scale-105'
                         }`}
                       >
-                        {addedProductId === product.id ? '✓ Added' : 'Add to Cart'}
+                        {addedProductId === product.id ? '✓' : 'Add'}
                       </button>
                     </div>
                   </div>
@@ -378,53 +379,68 @@ export default function Products() {
 
             {/* Empty State */}
             {filteredProducts.length === 0 && (
-              <div className="text-center py-20 bg-white rounded-2xl border border-gray-100">
-                <div className="text-6xl mb-4">🔍</div>
-                <p className="text-gray-500 font-medium">No products found</p>
-                <p className="text-sm text-gray-400 mt-1">Try adjusting your filters</p>
+              <div className="text-center py-12 sm:py-20 bg-white rounded-2xl border border-gray-100">
+                <div className="text-4xl sm:text-6xl mb-4">🔍</div>
+                <p className="text-gray-500 font-medium text-sm sm:text-base">No products found</p>
+                <p className="text-xs sm:text-sm text-gray-400 mt-1">Try adjusting your filters</p>
                 <button 
                   onClick={() => {
                     setSelectedCategory('All');
                     setPriceRange([0, 1000]);
                   }}
-                  className="mt-4 px-4 py-2 bg-amber-500 text-white rounded-lg text-sm hover:bg-amber-600 transition"
+                  className="mt-3 sm:mt-4 px-3 sm:px-4 py-1.5 sm:py-2 bg-amber-500 text-white rounded-lg text-xs sm:text-sm hover:bg-amber-600 transition"
                 >
                   Clear Filters
                 </button>
               </div>
             )}
 
-            {/* ============ PAGINATION ============ */}
+            {/* ============ PAGINATION - Responsive ============ */}
             {totalPages > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-8">
+              <div className="flex justify-center items-center gap-1 sm:gap-2 mt-4 sm:mt-8">
                 <button
                   onClick={() => handlePageChange(currentPage - 1)}
                   disabled={currentPage === 1}
-                  className="p-2 border border-gray-200 rounded-lg hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="p-1.5 sm:p-2 border border-gray-200 rounded-lg hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <ChevronLeft className="h-4 w-4" />
+                  <ChevronLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </button>
                 
-                {[...Array(totalPages)].map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handlePageChange(i + 1)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
-                      currentPage === i + 1
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
-                        : 'hover:bg-gray-100 text-gray-600'
-                    }`}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
-                
+                <div className="flex gap-0.5 sm:gap-1">
+                  {[...Array(Math.min(totalPages, 5))].map((_, i) => {
+                    let pageNum;
+                    if (totalPages <= 5) {
+                      pageNum = i + 1;
+                    } else if (currentPage <= 3) {
+                      pageNum = i + 1;
+                    } else if (currentPage >= totalPages - 2) {
+                      pageNum = totalPages - 4 + i;
+                    } else {
+                      pageNum = currentPage - 2 + i;
+                    }
+                    
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => handlePageChange(pageNum)}
+                        className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition ${
+                          currentPage === pageNum
+                            ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
+                            : 'hover:bg-gray-100 text-gray-600'
+                        }`}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  })}
+                </div>
+
                 <button
                   onClick={() => handlePageChange(currentPage + 1)}
                   disabled={currentPage === totalPages}
-                  className="p-2 border border-gray-200 rounded-lg hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="p-1.5 sm:p-2 border border-gray-200 rounded-lg hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <ChevronRight className="h-4 w-4" />
+                  <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </button>
               </div>
             )}
@@ -437,21 +453,21 @@ export default function Products() {
       {showMobileFilter && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/50" onClick={() => setShowMobileFilter(false)}></div>
-          <div className="absolute right-0 top-0 h-full w-80 bg-white shadow-xl overflow-y-auto p-6 animate-slide-in">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-bold">Filters</h2>
+          <div className="absolute right-0 top-0 h-full w-[280px] sm:w-80 bg-white shadow-xl overflow-y-auto p-4 sm:p-6 animate-slide-in">
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
+              <h2 className="text-base sm:text-lg font-bold">Filters</h2>
               <button 
                 onClick={() => setShowMobileFilter(false)}
                 className="p-2 hover:bg-gray-100 rounded-full"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
             </div>
 
-            {/* Categories */}
-            <div className="mb-6">
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">Categories</h3>
-              <div className="space-y-1">
+            {/* Categories - Mobile */}
+            <div className="mb-4 sm:mb-6">
+              <h3 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wider mb-2 sm:mb-3">Categories</h3>
+              <div className="space-y-0.5">
                 {categories.map((cat) => (
                   <button
                     key={cat}
@@ -459,7 +475,7 @@ export default function Products() {
                       setSelectedCategory(cat);
                       setShowMobileFilter(false);
                     }}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition ${
+                    className={`w-full text-left px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition ${
                       selectedCategory === cat 
                         ? 'bg-amber-500 text-white' 
                         : 'text-gray-600 hover:bg-gray-100'
@@ -471,20 +487,20 @@ export default function Products() {
               </div>
             </div>
 
-            {/* Price Range */}
-            <div className="mb-6">
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">Price Range</h3>
-              <div className="space-y-2">
-                <label className="flex items-center gap-2 text-sm text-gray-600">
+            {/* Price Range - Mobile */}
+            <div className="mb-4 sm:mb-6">
+              <h3 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wider mb-2 sm:mb-3">Price Range</h3>
+              <div className="space-y-1.5">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
                   <input type="radio" name="price-mobile" className="text-amber-500" /> Under $50
                 </label>
-                <label className="flex items-center gap-2 text-sm text-gray-600">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
                   <input type="radio" name="price-mobile" className="text-amber-500" /> $50 - $100
                 </label>
-                <label className="flex items-center gap-2 text-sm text-gray-600">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
                   <input type="radio" name="price-mobile" className="text-amber-500" /> $100 - $200
                 </label>
-                <label className="flex items-center gap-2 text-sm text-gray-600">
+                <label className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
                   <input type="radio" name="price-mobile" className="text-amber-500" defaultChecked /> All Prices
                 </label>
               </div>
@@ -492,7 +508,7 @@ export default function Products() {
 
             <button 
               onClick={() => setShowMobileFilter(false)}
-              className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl"
+              className="w-full py-2.5 sm:py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm sm:text-base font-semibold rounded-xl"
             >
               Apply Filters
             </button>
@@ -501,7 +517,7 @@ export default function Products() {
       )}
 
       {/* Add animation styles */}
-      <style jsx>{`
+      <style>{`
         @keyframes slide-in {
           from { transform: translateX(100%); }
           to { transform: translateX(0); }
