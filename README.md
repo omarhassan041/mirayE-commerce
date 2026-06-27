@@ -1,16 +1,82 @@
-# React + Vite
+# 🛒 Miray Market
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> The closest online market for Somali shoppers
 
-Currently, two official plugins are available:
+![Miray Market Banner](https://via.placeholder.com/1200x400/1a1a2e/ffd700?text=Miray+Market)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📌 About The Project
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Miray Market** is a modern e-commerce platform built with React and Vite, designed to provide Somali customers with a seamless online shopping experience. Our mission is to bring quality products at affordable prices, using cutting-edge technology to simplify the shopping journey.
 
-## Expanding the ESLint configuration
+### ✨ Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Feature | Description |
+|---------|-------------|
+| 🏠 **Home Page** | Beautiful landing with featured products |
+| 🛍️ **Products** | Browse and search products with filters |
+| 📂 **Categories** | Shop by category |
+| 🛒 **Cart** | Add, remove, and manage items |
+| ❤️ **Wishlist** | Save your favorite products |
+| 📦 **Checkout** | Secure and smooth checkout process |
+| 👤 **Profile** | Manage your account |
+| 📋 **Orders** | Track your order history |
+| ℹ️ **About** | Learn about our story and mission |
+| 🔐 **Login/Register** | Secure authentication |
+
+### 🎨 Design Highlights
+
+- ✨ Modern and clean UI
+- 🎯 Fully responsive design
+- 🌈 Beautiful gradient animations
+- 📱 Mobile-first approach
+- 🎭 Smooth page transitions
+- 💫 Interactive hover effects
+
+---
+
+## 🚀 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **React 18** | Frontend framework |
+| **Vite** | Build tool |
+| **React Router v6** | Navigation |
+| **Tailwind CSS** | Styling |
+| **Framer Motion** | Animations |
+| **Lucide React** | Icons |
+| **React Hot Toast** | Notifications |
+| **React Helmet Async** | SEO |
+| **React CountUp** | Animated counters |
+| **React Intersection Observer** | Scroll animations |
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/omarhassan041/mirayE-commerce.git
+
+# Navigate to project directory
+cd mirayE-commerce
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
