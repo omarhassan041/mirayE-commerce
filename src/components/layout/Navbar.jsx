@@ -8,36 +8,40 @@ export default function Navbar() {
   const { user } = useAuth();
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-amber-100/50 shadow-lg shadow-amber-500/5">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8 h-16">
-        
-        {/* Logo - Amber Gradient */}
-        <Link to="/" className="flex items-center gap-2 text-xl font-black tracking-tight text-gray-900 group">
-          <div className="p-1.5 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl shadow-lg shadow-amber-500/25 group-hover:scale-110 transition">
-            <ShoppingBag className="h-5 w-5 text-white" />
-          </div>
-          <span className="group-hover:scale-105 transition">
-            Miray<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Market</span>
-          </span>
-        </Link>
+   <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-amber-100/50 shadow-lg shadow-amber-500/5">
+  <div className="max-w-7xl mx-auto flex justify-between items-center px-2 sm:px-4 lg:px-8 h-12 sm:h-14 md:h-16 lg:h-20">
+    
+       {/* Logo - Responsive */}
+<Link to="/" className="flex items-center gap-1.5 sm:gap-2 text-base sm:text-xl lg:text-2xl font-black tracking-tight text-gray-900 group flex-shrink-0">
+  <div className="p-1 sm:p-1.5 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg sm:rounded-xl shadow-lg shadow-amber-500/25 group-hover:scale-110 transition">
+    <ShoppingBag className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+  </div>
+  <span className="group-hover:scale-105 transition truncate">
+    Miray<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Market</span>
+  </span>
+</Link>
 
-      {/* Links - Amber Hover */}
-<div className="flex items-center gap-2 sm:gap-6 text-sm font-medium text-gray-600">
-  <Link to="/" className="hidden sm:flex items-center gap-1 hover:text-amber-500 transition group">
+   {/* Links - Icons Only on Mobile, Full Text on Tablet+ */}
+<div className="flex items-center gap-1.5 sm:gap-4 md:gap-6 text-xs sm:text-sm font-medium text-gray-600">
+  
+  <Link to="/" className="flex items-center gap-1 hover:text-amber-500 transition group">
     <Home className="h-3.5 sm:h-4 w-3.5 sm:w-4 group-hover:scale-110 transition" /> 
-    <span className="group-hover:translate-x-0.5 transition text-xs sm:text-sm">Home</span>
+    <span className="group-hover:translate-x-0.5 transition hidden sm:inline">Home</span>
   </Link>
+  
   <Link to="/products" className="flex items-center gap-1 hover:text-amber-500 transition group">
     <Package className="h-3.5 sm:h-4 w-3.5 sm:w-4 group-hover:scale-110 transition" /> 
-    <span className="group-hover:translate-x-0.5 transition text-xs sm:text-sm">Products</span>
+    <span className="group-hover:translate-x-0.5 transition hidden sm:inline">Products</span>
   </Link>
-  <Link to="/categories" className="hidden md:flex items-center gap-1 hover:text-amber-500 transition group">
+  
+  <Link to="/categories" className="flex items-center gap-1 hover:text-amber-500 transition group">
     <Layers className="h-3.5 sm:h-4 w-3.5 sm:w-4 group-hover:scale-110 transition" /> 
-    <span className="group-hover:translate-x-0.5 transition text-xs sm:text-sm">Categories</span>
+    <span className="group-hover:translate-x-0.5 transition hidden sm:inline">Categories</span>
   </Link>
-  <Link to="/about" className="hidden md:flex items-center gap-1 hover:text-amber-500 transition group">
+  
+  <Link to="/about" className="flex items-center gap-1 hover:text-amber-500 transition group">
     <Sparkles className="h-3.5 sm:h-4 w-3.5 sm:w-4 group-hover:scale-110 transition" /> 
-    <span className="group-hover:translate-x-0.5 transition text-xs sm:text-sm">About</span>
+    <span className="group-hover:translate-x-0.5 transition hidden sm:inline">About</span>
   </Link>
 </div>
 
