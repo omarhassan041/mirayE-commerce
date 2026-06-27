@@ -21,25 +21,25 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Links - Amber Hover */}
-        <div className="flex items-center gap-6 text-sm font-medium text-gray-600">
-          <Link to="/" className="hidden sm:flex items-center gap-1.5 hover:text-amber-500 transition group">
-            <Home className="h-4 w-4 group-hover:scale-110 transition" /> 
-            <span className="group-hover:translate-x-0.5 transition">Home</span>
-          </Link>
-          <Link to="/products" className="flex items-center gap-1.5 hover:text-amber-500 transition group">
-            <Package className="h-4 w-4 group-hover:scale-110 transition" /> 
-            <span className="group-hover:translate-x-0.5 transition">Products</span>
-          </Link>
-          <Link to="/categories" className="hidden md:flex items-center gap-1.5 hover:text-amber-500 transition group">
-            <Layers className="h-4 w-4 group-hover:scale-110 transition" /> 
-            <span className="group-hover:translate-x-0.5 transition">Categories</span>
-          </Link>
-          <Link to="/about" className="hidden md:flex items-center gap-1.5 hover:text-amber-500 transition group">
-            <Sparkles className="h-4 w-4 group-hover:scale-110 transition" /> 
-            <span className="group-hover:translate-x-0.5 transition">About</span>
-          </Link>
-        </div>
+      {/* Links - Amber Hover */}
+<div className="flex items-center gap-2 sm:gap-6 text-sm font-medium text-gray-600">
+  <Link to="/" className="hidden sm:flex items-center gap-1 hover:text-amber-500 transition group">
+    <Home className="h-3.5 sm:h-4 w-3.5 sm:w-4 group-hover:scale-110 transition" /> 
+    <span className="group-hover:translate-x-0.5 transition text-xs sm:text-sm">Home</span>
+  </Link>
+  <Link to="/products" className="flex items-center gap-1 hover:text-amber-500 transition group">
+    <Package className="h-3.5 sm:h-4 w-3.5 sm:w-4 group-hover:scale-110 transition" /> 
+    <span className="group-hover:translate-x-0.5 transition text-xs sm:text-sm">Products</span>
+  </Link>
+  <Link to="/categories" className="hidden md:flex items-center gap-1 hover:text-amber-500 transition group">
+    <Layers className="h-3.5 sm:h-4 w-3.5 sm:w-4 group-hover:scale-110 transition" /> 
+    <span className="group-hover:translate-x-0.5 transition text-xs sm:text-sm">Categories</span>
+  </Link>
+  <Link to="/about" className="hidden md:flex items-center gap-1 hover:text-amber-500 transition group">
+    <Sparkles className="h-3.5 sm:h-4 w-3.5 sm:w-4 group-hover:scale-110 transition" /> 
+    <span className="group-hover:translate-x-0.5 transition text-xs sm:text-sm">About</span>
+  </Link>
+</div>
 
         {/* User Actions & Cart */}
         <div className="flex items-center gap-2">
