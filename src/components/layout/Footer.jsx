@@ -218,7 +218,7 @@ export default function Footer() {
           </div>
           <p className="flex items-center gap-1">
             Made with <Heart className="h-3 w-3 text-red-500 fill-red-500" /> by
-            Omar
+            OMAR H.ALI
           </p>
         </div>
       </div>
